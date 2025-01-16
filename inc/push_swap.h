@@ -44,7 +44,12 @@ void			rrb(t_stack_node **b, bool print);
 void			rrr(t_stack_node **a, t_stack_node **b, bool print);
 
 //UTILS
+int				stack_len(t_stack_node *stack);
 t_stack_node	*find_last_item(t_stack_node *stack);
+int				stack_len(t_stack_node *stack);
+bool			is_sorted(t_stack_node *stack);
+t_stack_node	*find_min(t_stack_node *stack);
+t_stack_node	*find_max(t_stack_node *stack);
 
 //ERRORS
 int				err_syntax(char	*str);
