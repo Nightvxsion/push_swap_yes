@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 17:29:32 by marcgar2          #+#    #+#             */
-/*   Updated: 2025/01/16 17:29:32 by marcgar2         ###   ########.fr       */
+/*   Updated: 2025/01/17 09:54:10 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ void			free_err(t_stack_node **a);
 void			init_stack_a(t_stack_node **a, char **argv);
 t_stack_node	*get_cheap_item(t_stack_node *stack);
 void			ready_to_push(t_stack_node **s, t_stack_node *top, char name);
+void			current_index(t_stack_node *stack);
 
 #endif
