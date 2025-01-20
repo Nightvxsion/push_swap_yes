@@ -14,7 +14,7 @@
 
 int	err_syntax(char	*str)
 {
-	if (!(*str == '+' || *str == '-') || (*str >= '0' && *str <= '9'))
+	if (!(*str == '+' || *str == '-' || (*str >= '0' && *str <= '9')))
 		return (1);
 	if ((*str == '+' || *str == '-') && !(str[1] >= '0' && str[1] <= '9'))
 		return (1);
@@ -44,10 +44,10 @@ void	free_stack(t_stack_node **stack)
 	t_stack_node	*tmp;
 	t_stack_node	*current;
 
-	if (!*stack)
+	if (!stack)
 		return ;
 	current = *stack;
-	while (stack)
+	while (current)
 	{
 		tmp = current->next; //Nos guardamos la siguiente posicion en tmp
 		current->nbr = 0;

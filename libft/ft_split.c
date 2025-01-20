@@ -86,16 +86,16 @@ static char	**body(char *s1, char **s, char c, int n)
 
 char	**ft_split(char const *s, char c)
 {
-	char	**destino;
+	char	**dest;
 	int		n;
 
 	if (s == NULL)
 		return (NULL);
 	n = is_on_str(s, c);
-	destino = (char **)malloc(sizeof(char *) * (n + 1));
-	if (destino == NULL)
+	dest = (char **)malloc(sizeof(char *) * (n + 1));
+	if (dest == NULL)
 		return (NULL);
-	return (body((char *)s, destino, c, n));
+	return (body((char *)s, dest, c, n));
 }
 
 /*int	main(void)

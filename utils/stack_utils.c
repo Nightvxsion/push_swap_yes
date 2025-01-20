@@ -62,7 +62,7 @@ t_stack_node	*find_min(t_stack_node *stack) //Consigue el numero mas pequeño de
 		if (stack->nbr < min) //Comprueba si el numero dado es menor que todos los que tenemos con nbr
 		{
 			min = stack->nbr; //Actualiza el numero como numero mas pequeño
-			abs_min = min; //Y lo enlaza con un puntero al numero mas pequeño
+			abs_min = stack; //Y lo enlaza con un puntero al numero mas pequeño
 		}
 		stack = stack->next;
 	}
@@ -82,7 +82,7 @@ t_stack_node	*find_max(t_stack_node *stack) //Consigue el numero mas grande de t
 		if (stack->nbr > max) //Comprueba si el numero dado es mayor que todos los que tenemos con nbr
 		{
 			max = stack->nbr; //Actualiza el numero como numero mas grande
-			abs_max = max; //Y lo enlaza con un puntero al numero mas grande
+			abs_max = stack; //Y lo enlaza con un puntero al numero mas grande
 		}
 		stack = stack->next;
 	}

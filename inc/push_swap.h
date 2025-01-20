@@ -50,6 +50,7 @@ int				stack_len(t_stack_node *stack);
 bool			is_sorted(t_stack_node *stack);
 t_stack_node	*find_min(t_stack_node *stack);
 t_stack_node	*find_max(t_stack_node *stack);
+char			**split(char const *s, char c);
 
 //ERRORS
 int				err_syntax(char	*str);
@@ -62,5 +63,12 @@ void			init_stack_a(t_stack_node **a, char **argv);
 t_stack_node	*get_cheap_item(t_stack_node *stack);
 void			ready_to_push(t_stack_node **s, t_stack_node *top, char name);
 void			current_index(t_stack_node *stack);
+void			cheapest(t_stack_node *list);
+void			init_node_a(t_stack_node *a, t_stack_node *b);
+void			init_node_b(t_stack_node *a, t_stack_node* b);
+
+//ALGORITHM (TURK)
+void			sort_three_elem(t_stack_node **a);
+void			sort_stacks(t_stack_node **a, t_stack_node **b);
 
 #endif

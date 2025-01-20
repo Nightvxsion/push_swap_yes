@@ -12,12 +12,6 @@
 
 #include "libft.h"
 
-static void	cambiar_a_mayuscula_si_impar(unsigned int i, char *c)
-{
-	if (i % 2 == 0 && *c >= 'a' && *c <= 'z')
-		*c = *c - 32;
-}
-
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	unsigned int	i;

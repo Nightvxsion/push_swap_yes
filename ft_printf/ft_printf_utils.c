@@ -12,7 +12,6 @@
 
 #include "ft_printf.h"
 #include "libft.h"
-
 void	ft_putstr(char *str)
 {
 	int	i;
@@ -62,7 +61,3 @@ int	ft_printnbr(int a)
 	return (leng);
 }
 
-void	ft_putchar_fd(char c, int fd)
-{
-	write (fd, &c, 1);
-}

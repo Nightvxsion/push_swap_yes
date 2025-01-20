@@ -18,7 +18,7 @@ static void	rotate(t_stack_node **stack)
 
 	if (!*stack || !(*stack)->next)
 		return ;
-	last_node = find_last_item(stack);
+	last_node = find_last_item(*stack);
 	last_node->next = *stack; //Asigna el 'next' como top de la lista, haciendolo top y ultimo nodo a la vez
 	*stack = (*stack)->next; //Asigna a la siguiente posicion para saber que 2 nodos tiene que rotar
 	(*stack)->prev = NULL; //Nos aseguramos de lo anterior

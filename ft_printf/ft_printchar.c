@@ -12,7 +12,6 @@
 
 #include "ft_printf.h"
 #include "libft.h"
-
 char	ft_printchar(char c)
 {
 	write(1, &c, 1);

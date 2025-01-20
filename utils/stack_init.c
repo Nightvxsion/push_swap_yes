@@ -12,7 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-static long	atol(const char *a) //Convierte de un ascii a un long
+static long	ft_atol(const char *a) //Convierte de un ascii a un long
 {
 	long	output;
 	int		flag;
@@ -68,7 +68,7 @@ void	init_stack_a(t_stack_node **a, char **argv)
 	{
 		if (err_syntax(argv[i]))
 			free_err(a);
-		n = atol(argv[i]);
+		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN) //Comprobar overflow de numeros
 			free_err(a);
 		if (err_duplicate(*a, (int)n))
