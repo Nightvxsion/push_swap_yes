@@ -20,6 +20,9 @@ INCLUDE = ./inc/push_swap.h
 LIBFT_DIR = ./libft
 MOVES_DIR = ./moves
 UTILS_DIR = ./utils
+BG = \e[4;32m	# BOLD GREEN
+PRPL = \e[0;35m # PURPLE
+NC = \e[0m 		# NO COLOR
 
 PRINTF_SRC = $(PRINTF_DIR)/ft_atoi.c \
 				$(PRINTF_DIR)/ft_itoa.c \
@@ -29,7 +32,7 @@ PRINTF_SRC = $(PRINTF_DIR)/ft_atoi.c \
 				$(PRINTF_DIR)/ft_printf.c \
 				$(PRINTF_DIR)/ft_printhex.c \
 				$(PRINTF_DIR)/ft_printprcnt.c \
-				$(PRINTF_DIR)/ft_printunsign.c
+				$(PRINTF_DIR)/ft_printunsign.c 
 
 LIBFT_SRC = $(LIBFT_DIR)/ft_bzero.c \
 			$(LIBFT_DIR)/ft_calloc.c \
@@ -62,7 +65,7 @@ LIBFT_SRC = $(LIBFT_DIR)/ft_bzero.c \
 			$(LIBFT_DIR)/ft_isalpha.c \
 			$(LIBFT_DIR)/ft_isprint.c \
 			$(LIBFT_DIR)/ft_isascii.c \
-			$(LIBFT_DIR)/ft_isalnum.c 
+			$(LIBFT_DIR)/ft_isalnum.c
 
 MOVES_SRC = $(MOVES_DIR)/push.c \
 			$(MOVES_DIR)/rotate.c \
@@ -77,23 +80,28 @@ UTILS_SRC = $(UTILS_DIR)/errors_handling.c \
 			$(UTILS_DIR)/push_swap_main.c \
 			$(UTILS_DIR)/split.c \
 			$(UTILS_DIR)/stack_init.c \
-			$(UTILS_DIR)/stack_utils.c 
+			$(UTILS_DIR)/stack_utils.c
 
-SRC = $(PRINTF_SRC) $(LIBFT_SRC) $(MOVES_SRC) $(UTILS_SRC)
-OBJ = $(SRC:.c=.o)
+SRCS = $(PRINTF_SRC) $(LIBFT_SRC) $(MOVES_SRC) $(UTILS_SRC)
+OBJ = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	@echo "$(PRPL)[OK]${NC}"
 
 %.o: %.c
+	@echo "$(BG)Compilando push_mierdas...${NC}"
 	$(CC) $(CFLAGS) -c $< -o $@
+	@echo "$(PRPL)[OK]${NC}"
 
 clean:
+	@echo "$(BG)Limpiando objetos de mierda...${NC}"
 	$(RM) $(OBJ)
 
 fclean: clean
+	@echo "$(BG)Limpiando el binario de mierda...${NC}"
 	$(RM) $(NAME)
 
 re: fclean all
