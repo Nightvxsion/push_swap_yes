@@ -22,7 +22,7 @@ static void	rotate(t_stack_node **stack)
 	last_node->next = *stack; //Asigna el 'next' como top de la lista, haciendolo top y ultimo nodo a la vez
 	*stack = (*stack)->next; //Asigna a la siguiente posicion para saber que 2 nodos tiene que rotar
 	(*stack)->prev = NULL; //Nos aseguramos de lo anterior
-	last_node->prev->next = last_node; //Reconectamos el segundo puntero que estaba en la posicion de prev a la actual
+	last_node->next->prev = last_node; //Reconectamos el segundo puntero que estaba en la posicion de prev a la actual
 	last_node->next->next = NULL; //Nos aseguramos de que la rotacion este terminado en NULL
 }
 

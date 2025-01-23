@@ -45,7 +45,7 @@ static void	target_a(t_stack_node *a, t_stack_node *b)
 		real_b = b;
 		while (real_b)
 		{
-			if(real_b->nbr < a->nbr && real_b->nbr > best_match) //Si el nodo 'b' actual es menor que los nodos de a && el nodo b mayor que mas negativo
+			if (real_b->nbr < a->nbr && real_b->nbr > best_match) //Si el nodo 'b' actual es menor que los nodos de a && el nodo b mayor que mas negativo
 			{
 				best_match = real_b->nbr; //Si es asi, actualizamos ese nodo como el maximo de los minimos
 				target_b = real_b; // Entonces el nodo actual pasa a ser el nuevo target simultaneamente
@@ -70,9 +70,9 @@ static void	cost_a(t_stack_node *a, t_stack_node *b)
 	while (a)
 	{
 		a->push_cost = a->index; //A cada indice le aplicamos un "costo"
-		if(!(a->average)) //Si a (apuntando a b) es "caro"
+		if (!(a->average)) //Si a (apuntando a b) es "caro"
 			a->push_cost = leng_a - (a->index); //Si lo es, hacemos la resta del indice actual menos todo el arreglo y ese sera el costo
-		if(a->target_node->average) //Si esta por encima de la media del "costo"
+		if (a->target_node->average) //Si esta por encima de la media del "costo"
 			a->push_cost += a->target_node->index; //Si encuentra uno mas barato va a apuntar a ese
 		else //Si a esta por encima de la media del "costo" pero b no
 			a->push_cost += leng_b - (a->target_node->index); //Hacemos una mezcla de lo anterior
@@ -87,6 +87,7 @@ void	cheapest(t_stack_node *list)
 
 	if (!list)
 		return ;
+	actual_cheapest = LONG_MAX;
 	while (list)
 	{
 		if (list->push_cost < actual_cheapest) //Si el valor detectado es mayor que el anterior barato

@@ -39,6 +39,7 @@ static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 		rev_rotate_both_stacks(a, b, cheapest_node);
 	ready_to_push(a, cheapest_node, 'a'); //Aseguramos a
 	ready_to_push(b, cheapest_node->target_node, 'b'); //Apuntamos y luego pusheamos de a a 'b';
+	pb(b, a, false);
 }
 
 static void	move_b_to_a(t_stack_node **a, t_stack_node **b)
@@ -64,9 +65,9 @@ void	sort_stacks(t_stack_node **a, t_stack_node **b)
 
 	leng_a = stack_len(*a);
 	if (leng_a-- > 3 && !is_sorted(*a)) //Si a tiene mas de 3 elementos y no esta ordenado
-		pa(a, b, false);
+		pb(b, a, false);
 	if (leng_a-- > 3 && !is_sorted(*a))
-		pa(a, b, false);
+		pb(b, a, false);
 	while (leng_a-- > 3 && !is_sorted(*a)) //Si aun asi sigue sin estar ordenado
 	{
 		init_node_a(*a, *b); //Inicializamos todos los nodos

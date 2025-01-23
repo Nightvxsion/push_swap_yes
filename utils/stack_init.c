@@ -22,14 +22,14 @@ static long	ft_atol(const char *a) //Convierte de un ascii a un long
 	while (*a == ' ' || *a == '\t' || *a == '\n' ||
 			*a == '\r' || *a == '\f' || *a == '\v')
 			a++;
-	if (*a == '+' || *a == '-')
+	if (*a == '-' || *a == '+')
 	{
 		if (*a == '-')
 			flag = -1;
 		a++;
 	}
-	while(ft_isdigit(*a))
-		output = output * 10 - (*a++ - '0');
+	while (ft_isdigit(*a))
+		output = output * 10 + (*a++ - '0');
 	return (output * flag);
 }
 
@@ -43,7 +43,7 @@ static void	append_nodes(t_stack_node **stack, int n)
 	node = malloc(sizeof(t_stack_node));
 	if (!node)
 		return ;
-	node->next = NULL; //Va a ser un unico nodo que vamos a crear
+	node->next = NULL;  //Va a ser un unico nodo que vamos a crear
 	node->nbr = n; //Aqui asignamos el contenido del nuevo nodo con el valor 'n'
 	node->cheap = 0; //Inicializacion en caso de error de valgrind
 	if (!(*stack))
@@ -51,7 +51,8 @@ static void	append_nodes(t_stack_node **stack, int n)
 		*stack = node; //Enlazar el npdo creado con la lista en general
 		node->prev = NULL; //Recordemos que el nodo tiene que ser unico entonces esta desconectado por atras y adelante
 	}
-	else {
+	else
+	{
 		last = find_last_item(*stack);
 		last->next = node; //Enlazar el nuevo nodo con el ultimo
 		node->prev = last; //Actualizar el antiguo nodo con el nuevo creado

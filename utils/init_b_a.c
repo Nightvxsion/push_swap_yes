@@ -24,7 +24,7 @@ static void	target_b(t_stack_node *a, t_stack_node *b)
 		real_a = a;
 		while (real_a)
 		{
-			if(real_a->nbr < b->nbr && real_a->nbr > best_match) //Si el nodo 'a' actual es menor que los nodos de b && el nodo a mayor que mas maximo
+			if (real_a->nbr > b->nbr && real_a->nbr < best_match) //Si el nodo 'a' actual es menor que los nodos de b && el nodo a mayor que mas maximo
 			{
 				best_match = real_a->nbr; //Si es asi, actualizamos ese nodo como el minimo de los maximos
 				target_a = real_a; // Entonces el nodo actual pasa a ser el nuevo target simultaneamente

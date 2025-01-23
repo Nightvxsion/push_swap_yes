@@ -49,8 +49,7 @@ SRC =ft_memset.c\
 	ft_strjoin.c\
 	ft_strtrim.c\
 	ft_strmapi.c\
-	ft_itoa.c\
-	ft_split.c
+	ft_itoa.c
 
 BONUSSRC = ft_lstnew_bonus.c\
 			ft_lstadd_front_bonus.c\
