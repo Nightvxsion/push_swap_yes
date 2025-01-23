@@ -3,34 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 18:50:04 by marcgar2          #+#    #+#             */
-/*   Updated: 2025/01/20 18:50:04 by marcgar2         ###   ########.fr       */
+/*   Updated: 2025/01/23 09:02:33 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static int	is_on_str(char const *s1, int c)
+static int	is_on_str(char *s1, char c)
 {
-	int	i;
-	int	j;
+	int		i; //Iterador principal
+	bool	j; //Flag para indicar que estamos dentro de una palabra
 
 	i = 0;
-	j = 0;
-	if (*s1 == '\0')
-		return (0);
-	while (*s1 != '\0')
+	while (*s1)
 	{
-		if (*s1 == c)
-			j = 0;
-		else if (j == 0)
+		j = false; //Inicializamos la flag en false
+		while (*s1 == c) //Si llega al caracter deimitador, estamos en una palabra
+			s1++; //Pasamos al siguiente char hasta llegar al final
+		while (*s1 != c && *s1) //Si no estamos al final de la palabra pero no hemos llegado tdv al delim_char
 		{
-			j = 1;
-			i++;
+			if(!j)
+			{
+				i++;
+				j = true;
+			}
+			s1++;
 		}
-		s1++;
 	}
 	return (i);
 }

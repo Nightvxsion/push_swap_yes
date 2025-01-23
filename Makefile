@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+         #
+#    By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 19:34:15 by marcgar2          #+#    #+#              #
-#    Updated: 2025/01/20 19:34:15 by marcgar2         ###   ########.fr        #
+#    Updated: 2025/01/23 08:54:35 by marcgar2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,10 @@ INCLUDE = ./inc/push_swap.h
 LIBFT_DIR = ./libft
 MOVES_DIR = ./moves
 UTILS_DIR = ./utils
-BG = \e[4;32m	# BOLD GREEN
-PRPL = \e[0;35m # PURPLE
-NC = \e[0m 		# NO COLOR
+BG = \e[1;32m		# BOLD GREEN
+PRPL = \e[0;35m 	# PURPLE
+NC = \e[0m 			# NO COLOR
+BLD_RED = \e[1;31m  # BOLD RED
 
 PRINTF_SRC = $(PRINTF_DIR)/ft_atoi.c \
 				$(PRINTF_DIR)/ft_itoa.c \
@@ -89,20 +90,22 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "$(PRPL)[OK]${NC}"
+	@echo "$(BG)[OK]${NC}"
 
 %.o: %.c
-	@echo "$(BG)Compilando push_mierdas...${NC}"
+	@echo "$(BG)------------- Compiling Push_swap ------------${NC}"
 	$(CC) $(CFLAGS) -c $< -o $@
-	@echo "$(PRPL)[OK]${NC}"
+	@echo "$(BG)[OK]${NC}"
 
 clean:
-	@echo "$(BG)Limpiando objetos de mierda...${NC}"
+	@echo "$(BLD_RED)------------- Cleaning objects -------------${NC}"
 	$(RM) $(OBJ)
+	@echo "$(BLD_RED)[DELETED OBJ]${NC}"
 
 fclean: clean
-	@echo "$(BG)Limpiando el binario de mierda...${NC}"
+	@echo "$(BLD_RED)------------- Cleaning binary -------------${NC}"
 	$(RM) $(NAME)
+	@echo "$(BLD_RED)[DELETED BIN]${NC}"
 
 re: fclean all
 
