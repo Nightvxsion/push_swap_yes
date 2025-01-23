@@ -50,7 +50,7 @@ void	free_stack(t_stack_node **stack)
 	while (current)
 	{
 		tmp = current->next; //Nos guardamos la siguiente posicion en tmp
-		current->nbr = 0;
+		//current->nbr = 0;
 		free(current);
 		current = tmp;
 	}

@@ -56,7 +56,6 @@ LIBFT_SRC = $(LIBFT_DIR)/ft_bzero.c \
 			$(LIBFT_DIR)/ft_putstr_fd.c \
 			$(LIBFT_DIR)/ft_putnbr_fd.c \
 			$(LIBFT_DIR)/ft_putendl_fd.c \
-			$(LIBFT_DIR)/ft_split.c \
 			$(LIBFT_DIR)/ft_strjoin.c \
 			$(LIBFT_DIR)/ft_strtrim.c \
 			$(LIBFT_DIR)/ft_substr.c \

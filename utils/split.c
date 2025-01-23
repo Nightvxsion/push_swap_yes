@@ -22,83 +22,67 @@ static int	is_on_str(char *s1, char c)
 	{
 		j = false; //Inicializamos la flag en false
 		while (*s1 == c) //Si llega al caracter deimitador, estamos en una palabra
-			s1++; //Pasamos al siguiente char hasta llegar al final
+			++s1; //Pasamos al siguiente char hasta llegar al final
 		while (*s1 != c && *s1) //Si no estamos al final de la palabra pero no hemos llegado tdv al delim_char
 		{
-			if(!j)
-			{
-				i++;
+			if(!j) {
+				++i;
 				j = true;
 			}
-			s1++;
+			++s1;
 		}
 	}
 	return (i);
 }
 
-static int	total_length(char const *s1, char c, int n)
+static char	*next_word(char *s, char c)
 {
-	int	len;
-
-	len = 0;
-	while (s1[n] != c && s1[n] != '\0')
-	{
-		len++;
-		n++;
-	}
-	return (len);
-}
-
-static void	*rm_arr(char **s1, int j)
-{
-	while (j > 0)
-	{
-		j--;
-		free((void *)s1[j]);
-	}
-	free(s1);
-	return (NULL);
-}
-
-static char	**body(char *s1, char **s, char c, int n)
-{
-	int	i;
-	int	j;
-	int	k;
+	static int	track = 0; //Si hacemos un cambio u otro subproceso, con el static mantenemos su estado donde se quedo
+	char		*next_w; //Guardar puntero a la siguiente palabra
+	int			len; //Longitud del substring
+	int			i; //Iterador principal
 
 	i = 0;
-	j = 0;
-	while (s1[i] != '\0' && j < n)
-	{
-		while (s1[i] == c)
-			i++;
-		s[j] = (char *)malloc(sizeof(char) * (total_length(s1, c, i) + 1));
-		if (s[j] == NULL)
-			return (rm_arr(s, j));
-		k = 0;
-		while (s1[i] != '\0' && s1[i] != c)
-			s[j][k++] = s1[i++];
-		s[j][k] = '\0';
-		j++;
-	}
-	s[j] = NULL;
-	return (s);
+	len = 0;
+	while (s[track] == c)
+		++track;
+	while ((s[track + len] != c) && s[track + len]) //Si al iterar llegamos al delim_char && si llegamos al final de la palabra
+		++len; //En len guardamos char-to-char el substring
+	next_w = malloc((size_t)len * sizeof(char) + 1);
+	if (!next_w)
+		return (NULL);
+	while ((s[track] != c) && s[track])
+		next_w[i++] = s[track++]; //Copìar de track al iterador principal
+	next_w[i] = '\0';
+	return (next_w);
 }
 
-char	**split(char const *s, char c)
+
+char	**split(char *s, char c)
 {
 	char	**dest;
-	int		n;
+	int		i;
+	int		word_count;
 
-	if (s == NULL)
+	i = 0;
+	word_count = is_on_str(s, c);
+	if (!word_count)
+		exit(1);
+	dest = malloc(sizeof(char *) * (size_t)(word_count + 2)); //Aloja para el \n y el \0
+	if (!dest)
 		return (NULL);
-	n = is_on_str(s, c);
-	dest = (char **)malloc(sizeof(char *) * (n + 1));
-	if (dest == NULL)
+	while (word_count-- >= 0) //Mientras que haya mas de una letra itera hacia atras
 	{
-		free(dest);
-		return (NULL);
+		if (i == 0)
+		{ //Hacer un caso para la primera posicion del string
+			dest[i] = malloc(sizeof(char));
+			if(!dest[i])
+				return (NULL);
+			dest[i++][0] = '\0';
+			continue ;
+		}
+		dest[i++] = next_word(s, c);
 	}
-	dest = body((char *)s, dest, c, n);
+	dest[i] = NULL;
 	return (dest);
 }

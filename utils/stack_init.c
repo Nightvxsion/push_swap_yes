@@ -22,13 +22,13 @@ static long	ft_atol(const char *a) //Convierte de un ascii a un long
 	while (*a == ' ' || *a == '\t' || *a == '\n' ||
 			*a == '\r' || *a == '\f' || *a == '\v')
 			a++;
-	if (*a == '+' || *a == '-')
+	if (*a == '-' || *a == '+')
 	{
 		if (*a == '-')
 			flag = -1;
 		a++;
 	}
-	while(ft_isdigit(*a))
+	while (ft_isdigit(*a))
 		output = output * 10 - (*a++ - '0');
 	return (output * flag);
 }

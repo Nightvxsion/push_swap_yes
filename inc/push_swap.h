@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <stdbool.h>
+# include <stdlib.h>
 # include <limits.h>
 # include "../libft/libft.h"
 # include "../ft_printf/ft_printf.h"
@@ -50,7 +51,7 @@ int				stack_len(t_stack_node *stack);
 bool			is_sorted(t_stack_node *stack);
 t_stack_node	*find_min(t_stack_node *stack);
 t_stack_node	*find_max(t_stack_node *stack);
-char			**split(char const *s, char c);
+char			**split(char *s, char c);
 
 //ERRORS
 int				err_syntax(char	*str);
