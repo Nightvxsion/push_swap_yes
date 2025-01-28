@@ -29,7 +29,11 @@ static long	ft_atol(const char *a) //Convierte de un ascii a un long
 		a++;
 	}
 	while (ft_isdigit(*a))
+<<<<<<< HEAD
 		output = output * 10 + (*a++ - '0');
+=======
+		output = output * 10 - (*a++ - '0');
+>>>>>>> b59ba5c6c34578247e81f834ee688a6ced649cf4
 	return (output * flag);
 }
 
