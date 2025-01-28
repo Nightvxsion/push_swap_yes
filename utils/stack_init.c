@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 19:44:33 by marcgar2          #+#    #+#             */
-/*   Updated: 2025/01/16 19:44:33 by marcgar2         ###   ########.fr       */
+/*   Updated: 2025/01/28 07:52:22 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,7 @@ static long	ft_atol(const char *a) //Convierte de un ascii a un long
 		a++;
 	}
 	while (ft_isdigit(*a))
-<<<<<<< HEAD
 		output = output * 10 + (*a++ - '0');
-=======
-		output = output * 10 - (*a++ - '0');
->>>>>>> b59ba5c6c34578247e81f834ee688a6ced649cf4
 	return (output * flag);
 }
 
