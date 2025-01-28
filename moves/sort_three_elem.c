@@ -19,7 +19,7 @@ void	sort_three_elem(t_stack_node **a)
 	biggest = find_max(*a);
 	if (biggest == *a) //Una vez enocntrado el numero maximo, en la posicion en la que está justo es, entonces ra
 		ra(a, false); 
-	else if((*a)->next == biggest) //Si el siguiente nodo de 'a' es el mayor entonces rra
+	else if ((*a)->next == biggest) //Si el siguiente nodo de 'a' es el mayor entonces rra
 		rra(a, false);
 	if ((*a)->nbr > (*a)->next->nbr)
 		sa(a, false); //Si justo la posicion de despues es mayor que el anterior grande, entonces swapea

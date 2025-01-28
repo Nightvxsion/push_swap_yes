@@ -44,7 +44,7 @@ static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 
 static void	move_b_to_a(t_stack_node **a, t_stack_node **b)
 {
-	ready_to_push(a, (*b)->target_node, 'b'); //Aseguramos que 'b' sea objetivo de 'a'
+	ready_to_push(a, (*b)->target_node, 'a'); //Aseguramos que 'b' sea objetivo de 'a'
 	pa(a, b, false); //Pusheamos
 }
 
@@ -52,7 +52,7 @@ static void min_to_the_top(t_stack_node **a)
 {
 	while ((*a)->nbr != find_min(*a)->nbr) //Mientras que el numero mas pequeño no este arriba
 	{
-		if(find_min(*a)->average) //Si el numero mas pequeño esta por encima de la media
+		if (find_min(*a)->average) //Si el numero mas pequeño esta por encima de la media
 			ra(a, false);
 		else
 			rra(a, false);
@@ -74,7 +74,7 @@ void	sort_stacks(t_stack_node **a, t_stack_node **b)
 		move_a_to_b(a, b); //Los movemos hacia 'b' hasta que hayan 3 sin ordenar
 	}
 	sort_three_elem(a);
-	while(*b)
+	while (*b)
 	{
 		init_node_b(*a, *b); //Inicializamos todos los nodos
 		move_b_to_a(a, b); //Pasamos de 'b' a 'a' hasta que hayan 3 elementos sin ordenar

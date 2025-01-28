@@ -25,7 +25,7 @@ static int	is_on_str(char *s1, char c)
 			++s1; //Pasamos al siguiente char hasta llegar al final
 		while (*s1 != c && *s1) //Si no estamos al final de la palabra pero no hemos llegado tdv al delim_char
 		{
-			if(!j) {
+			if (!j) {
 				++i;
 				j = true;
 			}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors_handling.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcgar2 <marcgar2@student.42madrid.org    +#+  +:+       +#+        */
+/*   By: marcgar2 <marcgar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 19:22:10 by marcgar2          #+#    #+#             */
-/*   Updated: 2025/01/28 07:55:10 by marcgar2         ###   ########.fr       */
+/*   Updated: 2025/01/16 19:22:10 by marcgar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	free_stack(t_stack_node **stack)
 	while (current)
 	{
 		tmp = current->next; //Nos guardamos la siguiente posicion en tmp
-		current->nbr = 0;
+		//current->nbr = 0;
 		free(current);
 		current = tmp;
 	}
